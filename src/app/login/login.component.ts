@@ -35,10 +35,9 @@ export class LoginComponent implements OnInit {
         if (userData != null) {
                this.authorized = true;
                this.user = userData;  
-                this.loginService.setUserHead(this.user);
-               this.loginService.setBooleanButton(true)
+               this.loginService.setUserHead(this.user);
+               window.location.reload();
                this.router.navigate(['/dashboard']);
-              
             }       
       }
     );

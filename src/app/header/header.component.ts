@@ -26,10 +26,11 @@ export class HeaderComponent implements OnInit {
   }
   ngAfterViewInit()
   {
-   
     this.firstName= sessionStorage.getItem('firstName')
     this.lastName= sessionStorage.getItem('lastName')
     this.image=sessionStorage.getItem('imgUrl');
+    if(sessionStorage.getItem('TokenId')!=null)
+      this.loginService.setBooleanButton(true)
   }
   logout()
   {
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem('lastName')
     sessionStorage.removeItem('imgUrl')
     this.route.navigate(['/login'])
+    window.location.reload();
     this.showButton=false;
   }
 

@@ -14,7 +14,7 @@
           <button *ngIf="showButton" class="btn btn-danger" (click)="logout()">Logout</button> 
         </li>
       </ul>
-      <div style="text-align: right; color:blue; ">
+      <div *ngIf="showButton" style="text-align: right; color:blue; ">
         welcome,  {{firstName}} {{lastName}}
         <img src="{{image}}"  height="42" width="42">
       </div>
