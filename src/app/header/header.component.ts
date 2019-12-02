@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   {
    
     this.firstName= sessionStorage.getItem('firstName')
-   this.firstName= sessionStorage.getItem('lastName')
+    this.lastName= sessionStorage.getItem('lastName')
     this.image=sessionStorage.getItem('imgUrl');
   }
   logout()
