@@ -1,0 +1,59 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthService, SocialUser, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
+import { LoginService } from '../_services/login.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  private user: SocialUser;
+  public authorized: boolean = false;
+  
+
+
+  constructor( private socialAuthService: AuthService, private loginService:LoginService, private router: Router) {}
+  ngOnInit() {
+  }
+  
+  public socialSignIn(socialPlatform : string) {  
+
+    let socialPlatformProvider;
+    if(socialPlatform == "facebook"){
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    }else if(socialPlatform == "google"){
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+    
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform+" sign in data : " , userData);
+        // Now sign-in with userData        
+        if (userData != null) {
+               this.authorized = true;
+               this.user = userData;  
+                this.loginService.setUserHead(this.user);
+               this.loginService.setBooleanButton(true)
+               this.router.navigate(['/dashboard']);
+              
+            }       
+      }
+    );
+      
+  }
+  
+
+  public signOut(){
+          this.socialAuthService.signOut();
+          this.authorized = false;
+      }
+      submitForm(value)
+      {
+        console.log(value)
+        
+      }
+
+}

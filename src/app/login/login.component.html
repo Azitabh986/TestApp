@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+   <!-- <img src="{{user.image}}" class="marginBottom">
+ <div class="marginBottom">
+   <h4>{{user.name}}</h4>
+   <p>{{user.email}}</p>
+   <p>{{user | json}}</p>
+ </div>  -->
+
+ <form #f="ngForm"  (ngSubmit)="submitForm(f.value)">
+  <div class="form-group row">
+    <label for="username" class="col-sm-1 col-form-label col-form-label-sm" style="font-size: 18px; margin-left: 25px;margin-top: 20px;">Username: </label>
+        <div class="col-sm-4">
+                <input type="text" ngModel
+                placeholder="Enter Username" 
+                class="form-control form-control-sm"
+                style="margin-top: 25px;"
+                name="username"
+                #username="ngModel"
+                required
+                />
+        </div>
+   
+  </div>
+     <div *ngIf="username.invalid && (username.dirty || username.touched)&& username.errors.required ">
+     Username is required.
+  </div>
+ 
+  <div class="form-group row">
+        <label for="Password" class="col-sm-1 col-form-label col-form-label-sm" style="font-size: 18px; margin-left: 25px;">Password: </label>
+            <div class="col-sm-4">
+                    <input type="text" ngModel
+                    placeholder="Enter Password" 
+                    class="form-control form-control-sm"
+                    style="margin-top: 1 25px;"
+                    name="Password"
+                    #Password="ngModel"
+                    required
+                    minlength="8"
+                    />
+            </div>
+       
+      </div>
+         <div   *ngIf="Password.invalid && (Password.dirty || Password.touched)&& Password.errors.required">
+         Password is required.</div>
+         <div *ngIf="Password.errors?.minlength" style="color:red; margin-left: 25px;">
+             Password must be 8 characters. you have entered {{Password.errors.minlength.actualLength}}
+         </div>
+         <button type="submit" class="btn btn-primary" style="margin-left: 75px;">Login</button>
+    
+ </form>
+<div   style="text-align: center;">
+    <div style="color: blueviolet; font-size: 15px; text-decoration: underline;">Login with social Media</div>
+    <button (click)="socialSignIn('facebook')" class="btn btn-primary my-4" style="margin-right: 20px;">Sign in with Facebook</button>
+    <button (click)="socialSignIn('google')" class="btn btn-outline-primary my-4">Signin in with Google</button> 
+</div> 
