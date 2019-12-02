@@ -13,7 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('282577308941815')
+    provider: new FacebookLoginProvider('283096639291012')
   },
   {
     id: GoogleLoginProvider.PROVIDER_ID,
