@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, SocialUser, FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
 import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   private user: SocialUser;
   public authorized: boolean = false;
   
-
+  items$: Observable<any[]>;
 
   constructor( private socialAuthService: AuthService, private loginService:LoginService, private router: Router) {}
   ngOnInit() {

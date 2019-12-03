@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider,GoogleLoginProvider, } from 'angularx-social-login';
 import { FormsModule }   from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const config = new AuthServiceConfig([
@@ -36,12 +37,13 @@ export function provideConfig() {
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     {
       provide: AuthServiceConfig,
-    useFactory: provideConfig
+      useFactory: provideConfig
     }
   ],
   bootstrap: [AppComponent]

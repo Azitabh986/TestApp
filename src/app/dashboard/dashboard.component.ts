@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
-import { LoginService } from '../_services/login.service';
+import { Observable } from 'rxjs';
+import { NewsapiService } from '../_services/newsapi.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,8 @@ import { LoginService } from '../_services/login.service';
 })
 export class DashboardComponent implements OnInit {
  
-  constructor(private getService : LoginService) {
+  mArticles: Array<any>;
+  constructor(private getService : NewsapiService) {
    
     
     
@@ -16,11 +18,7 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    
-    
+    this.getService.initArticles().subscribe(data => this.mArticles = data['articles']);  
   }
-
-
-    
   
 }
