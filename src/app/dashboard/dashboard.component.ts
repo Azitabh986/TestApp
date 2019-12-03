@@ -10,13 +10,7 @@ import { NewsapiService } from '../_services/newsapi.service';
 export class DashboardComponent implements OnInit {
  
   mArticles: Array<any>;
-  constructor(private getService : NewsapiService) {
-   
-    
-    
-   }
-
-
+  constructor(private getService : NewsapiService) { }
   ngOnInit() {
     this.getService.initArticles().subscribe(data => this.mArticles = data['articles']);  
   }

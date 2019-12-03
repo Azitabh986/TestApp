@@ -9,7 +9,15 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-        
+        <li>
+            <a *ngIf="showButton"
+            class="nav-item nav-link"
+            [routerLink]="['/dashboard']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Google News</a
+          >
+        </li>
         <li>
           <button *ngIf="showButton" class="btn btn-danger" (click)="logout()">Logout</button> 
         </li>
