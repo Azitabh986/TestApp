@@ -10,6 +10,7 @@ import { FormsModule }   from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 const config = new AuthServiceConfig([
@@ -46,7 +47,8 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })

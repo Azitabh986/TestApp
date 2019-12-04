@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
 import { LoaderService } from '../_services/loader.service';
+import { AuthGuardService } from '../guards/auth-guard.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   firstName:string;
   lastName:string;
   image:string;
-  constructor(private loginService:LoginService, private route:Router,private loader:LoaderService) {
+  constructor(private loginService:LoginService, private route:Router,private loader:LoaderService,private auth:AuthGuardService) {
  
       
    }
@@ -41,11 +42,15 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem('imgUrl')
     window.location.reload();
     this.showButton=false;
-    this.route.navigate(['/home'])
+    this.route.navigate(['/home']);
   }
   loginFun(){
-    this.route.navigate(['login'])
     this.loader.setLoader(true);
+    this.auth.canActivate().subscribe(res=>{
+      if(res)
+        this.route.navigate(['login'])
+      
+    })
   }
 
 }
