@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
                this.user = userData;  
                this.loginService.setUserHead(this.user);
                window.location.reload();
-               this.router.navigate(['/dashboard']);
+               this.router.navigate(['home']);
             }       
       }
     );

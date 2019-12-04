@@ -9,6 +9,7 @@ import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider,GoogleLogin
 import { FormsModule }   from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 
 const config = new AuthServiceConfig([
@@ -31,7 +32,8 @@ export function provideConfig() {
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

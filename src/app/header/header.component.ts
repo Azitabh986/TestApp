@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
+import { LoaderService } from '../_services/loader.service';
 
 
 @Component({
@@ -9,11 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  showButton:boolean;
+  showButton:boolean=false;
   firstName:string;
   lastName:string;
   image:string;
-  constructor(private loginService:LoginService, private route:Router) {
+  constructor(private loginService:LoginService, private route:Router,private loader:LoaderService) {
  
       
    }
@@ -38,9 +39,13 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem('firstName')
     sessionStorage.removeItem('lastName')
     sessionStorage.removeItem('imgUrl')
-    this.route.navigate(['/login'])
     window.location.reload();
     this.showButton=false;
+    this.route.navigate(['/home'])
+  }
+  loginFun(){
+    this.route.navigate(['login'])
+    this.loader.setLoader(true);
   }
 
 }

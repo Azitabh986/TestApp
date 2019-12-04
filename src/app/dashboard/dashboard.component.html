@@ -1,4 +1,7 @@
-<div class="card" *ngFor="let item of mArticles" style="width:50%; margin-bottom: 20px; margin-left: 25%;">
+<div class="loader"  *ngIf="showLoader" style="color:black; text-align: center; font-size: 18px;">Loading...</div>
+
+<div  *ngIf="!showLoader">
+  <div class="card" *ngFor="let item of mArticles" style="width:50%; margin-bottom: 20px; margin-left: 25%;">
     <img src="{{item.urlToImage}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{item.title}}</h5>
@@ -13,3 +16,5 @@
       <a href="{{item.url}}" class="card-link">More Details</a>
     </div>
   </div>
+</div>
+

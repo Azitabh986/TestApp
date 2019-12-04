@@ -19,12 +19,19 @@
           >
         </li>
         <li>
-          <button *ngIf="showButton" class="btn btn-danger" (click)="logout()">Logout</button> 
+          
         </li>
       </ul>
+     
+      <div *ngIf="!showButton">
+        <button class="btn btn-primary" (click)="loginFun()">
+          Login
+        </button>
+      </div>
       <div *ngIf="showButton" style="text-align: right; color:blue; ">
         welcome,  {{firstName}} {{lastName}}
-        <img src="{{image}}"  height="42" width="42">
+        <img src="{{image}}"  height="42" width="42" style="margin-right: 10px;">
+        <button *ngIf="showButton" class="btn btn-danger" (click)="logout()">Logout</button> 
       </div>
       <!-- <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
