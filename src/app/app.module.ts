@@ -11,6 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FlipImagesDirective } from './directives/flip-images.directive';
 
 
 const config = new AuthServiceConfig([
@@ -34,7 +36,9 @@ export function provideConfig() {
     LoginComponent,
     HeaderComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent,
+    FlipImagesDirective
   ],
   imports: [
     BrowserModule,

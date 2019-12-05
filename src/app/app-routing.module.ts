@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [ {
@@ -24,6 +25,10 @@ const routes: Routes = [ {
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 
 ];

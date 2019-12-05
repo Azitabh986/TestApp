@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoaderService } from '../_services/loader.service';
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { Router } from '@angular/router';
+import { setDefaultService } from 'selenium-webdriver/chrome';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  likeContent:any;
+  dislikeContent:any
 
   constructor(private loader:LoaderService,private auth:AuthGuardService,private route:Router) { }
 
@@ -22,8 +25,13 @@ export class HomeComponent implements OnInit {
       else
       this.route.navigate(['home'])
 
-
     })
+    if(sessionStorage.getItem('like')!=null)
+      {
+        this.likeContent=sessionStorage.getItem('like');
+      }
+      else
+      this.dislikeContent=sessionStorage.getItem('dislike');
 
   }
 
