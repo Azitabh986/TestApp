@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   dislikeContent:any
   qrdata:string='';
   elementType : 'url' | 'canvas' | 'img' = 'url';
-value : string='';
+valueNew : string='https://facebook.com/';
   constructor(private loader:LoaderService,private auth:AuthGuardService,private route:Router) { }
 
   ngOnInit() {
@@ -31,9 +31,8 @@ value : string='';
     if(sessionStorage.getItem('like')!=null)
       {
         this.likeContent=sessionStorage.getItem('like');
-        this.value="https://facebook.com/"
-        this.value+=sessionStorage.getItem('firstName');
-        this.value+=+sessionStorage.getItem('lastName');
+        this.valueNew+=sessionStorage.getItem('firstName');
+        this.valueNew+=+sessionStorage.getItem('lastName');
         // this.value=sessionStorage.getItem('imgUrl');
       }
       else
