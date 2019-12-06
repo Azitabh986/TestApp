@@ -44,12 +44,6 @@ export class LoginComponent implements OnInit {
     );
       
   }
-  
-
-  public signOut(){
-          this.socialAuthService.signOut();
-          this.authorized = false;
-      }
       submitForm(value)
       {
         console.log(value)

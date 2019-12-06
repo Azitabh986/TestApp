@@ -12,7 +12,9 @@ import { setDefaultService } from 'selenium-webdriver/chrome';
 export class HomeComponent implements OnInit {
   likeContent:any;
   dislikeContent:any
-
+  qrdata:string='';
+  elementType : 'url' | 'canvas' | 'img' = 'url';
+value : string='';
   constructor(private loader:LoaderService,private auth:AuthGuardService,private route:Router) { }
 
   ngOnInit() {
@@ -29,6 +31,10 @@ export class HomeComponent implements OnInit {
     if(sessionStorage.getItem('like')!=null)
       {
         this.likeContent=sessionStorage.getItem('like');
+        this.value="https://facebook.com/"
+        this.value+=sessionStorage.getItem('firstName');
+        this.value+=+sessionStorage.getItem('lastName');
+        // this.value=sessionStorage.getItem('imgUrl');
       }
       else
       this.dislikeContent=sessionStorage.getItem('dislike');

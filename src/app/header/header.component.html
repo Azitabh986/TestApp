@@ -30,7 +30,9 @@
       </div>
       <div *ngIf="showButton" style="text-align: right; color:blue; ">
         welcome,  {{firstName}} {{lastName}}
-        <img src="{{image}}"  height="42" width="42" style="margin-right: 10px;">
+        <img src="{{image}}"  (click)="showQR()" height="42" width="42"
+         style="margin-right: 10px;">
+        
         <button *ngIf="showButton" class="btn btn-danger" (click)="logout()">Logout</button> 
       </div>
       <!-- <form class="form-inline my-2 my-lg-0">

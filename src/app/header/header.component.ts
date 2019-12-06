@@ -15,8 +15,11 @@ export class HeaderComponent implements OnInit {
   firstName:string;
   lastName:string;
   image:string;
-  constructor(private loginService:LoginService, private route:Router,private loader:LoaderService,private auth:AuthGuardService) {
- 
+  showQRCode:boolean;
+  myAngularxQrCode: string;
+  constructor(private loginService:LoginService,  private route:Router,private loader:LoaderService,private auth:AuthGuardService) {
+    this.myAngularxQrCode = 'Your QR code data string';
+
       
    }
 
@@ -42,7 +45,10 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem('imgUrl')
     window.location.reload();
     this.showButton=false;
-    this.route.navigate(['/home']);
+    this.route.navigate(['home']);
+  }
+  showQR(){
+    this.showQRCode=true;
   }
   loginFun(){
     this.loader.setLoader(true);

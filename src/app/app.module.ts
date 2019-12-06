@@ -14,7 +14,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FlipImagesDirective } from './directives/flip-images.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 const config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
@@ -46,7 +46,8 @@ export function provideConfig() {
     SocialLoginModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule 
+    NgxPaginationModule,
+    NgxQRCodeModule
   ],
   providers: [
     {
