@@ -28,4 +28,8 @@ export class DashboardComponent implements OnInit {
       sessionStorage.setItem('dislike',title)
       }
   }
+  setDefault()
+  {
+    this.checkLike=false;
+  }
 }

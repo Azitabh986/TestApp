@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FlipImagesDirective } from './directives/flip-images.directive';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const config = new AuthServiceConfig([
   {
@@ -45,7 +45,8 @@ export function provideConfig() {
     AppRoutingModule,
     SocialLoginModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule 
   ],
   providers: [
     {

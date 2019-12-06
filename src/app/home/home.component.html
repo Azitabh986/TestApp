@@ -6,8 +6,13 @@
     </div>
   </div>
 
+      <div class="alert alert-success"*ngIf="likeContent" role="alert">
+        you liked:
+        {{likeContent}}
+      </div>
 
 
-
-  <h5>you liked {{likeContent}}</h5>
-      <h5>you disliked {{dislikeContent}}</h5>
+      <div class="alert alert-primary" *ngIf="dislikeContent" role="alert">
+        you disliked:
+        {{dislikeContent}}
+      </div>
