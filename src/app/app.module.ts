@@ -15,6 +15,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FlipImagesDirective } from './directives/flip-images.directive';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { SwiperComponent } from './_smallComponents/swiper/swiper.component';
+import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
+
 const config = new AuthServiceConfig([
   {
     id: FacebookLoginProvider.PROVIDER_ID,
@@ -38,7 +47,8 @@ export function provideConfig() {
     DashboardComponent,
     HomeComponent,
     NotFoundComponent,
-    FlipImagesDirective
+    FlipImagesDirective,
+    SwiperComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +57,14 @@ export function provideConfig() {
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    SwiperModule
   ],
   providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig

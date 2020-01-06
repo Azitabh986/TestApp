@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
       submitForm(value)
       {
         console.log(value)
+        this.router.navigate(['home']);
         
       }
 

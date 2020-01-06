@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
     this.showButton=false;
     this.route.navigate(['home']);
+    this.loader.setLoader(true);
   }
   showQR(){
     this.showQRCode=true;

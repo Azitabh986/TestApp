@@ -1,0 +1,5 @@
+<swiper  class="swiper-container" [config]="swiperConfig">
+    <div *ngFor="let img of images" class="swiper-slide" style="overflow:hidden">
+      <img [src]="img.url" style="width:100%;height: 22vw;" />
+    </div>
+  </swiper>
