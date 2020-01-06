@@ -20,7 +20,8 @@ export class SwiperComponent implements OnInit {
     speed: 700,
     loop: true
   };
-  images=[];
+  images=['https://images.ctfassets.net/kvbvpznvvttu/4izXuyot5mOAAbbus9aTPC/f3137232abc55526f449113046bf1763/amazon_promo.png?h=250',
+          'https://images.ctfassets.net/kvbvpznvvttu/4izXuyot5mOAAbbus9aTPC/f3137232abc55526f449113046bf1763/amazon_promo.png?h=250'];
   constructor() { }
 
   ngOnInit() {
