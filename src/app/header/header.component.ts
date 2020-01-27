@@ -17,13 +17,19 @@ export class HeaderComponent implements OnInit {
   image:string;
   showQRCode:boolean;
   myAngularxQrCode: string;
+  today;
+  countries=['Argentina','Australia','Austria','Belgium','Brazil','Bulgaria','Canada','China','Colombia','Cuba','Czech Republic','Egypt','France','Germany','Greece',
+    'Hong Kong','Hungary','India','Indonesia','Ireland','Israel','Italy','Japan','Latvia','Lithuania','Malaysia','Mexico','Morocco','Netherlands','New Zealand',
+    'Nigeria','Norway','Philippines','Poland','Portugal','Romania','Russia','Saudi Arabia','Serbia','Singapore','Slovakia','Slovenia','South Africa','South Korea',
+    'Sweden','Switzerland','Taiwan','Thailand','Turkey','UAE','Ukraine','United Kingdom','United States','Venuzuela']
   constructor(private loginService:LoginService,  private route:Router,private loader:LoaderService,private auth:AuthGuardService) {
     this.myAngularxQrCode = 'Your QR code data string';
-
+    setInterval(() => {this.today = Date.now()}, 1);
       
    }
 
   ngOnInit() {
+    
     this.loginService.getBooleanButton().subscribe(res => {
       this.showButton=res;
     });
@@ -59,5 +65,17 @@ export class HeaderComponent implements OnInit {
       
     })
   }
-
+  selectedCountry(value)
+  {
+    if(value=='India')
+      this.route.navigate(['worldNews'])
+    // const index=0;
+    // this.countries.forEach(function (c){
+    //   if(c!=value)
+    //     this.index++;
+        
+    // })
+    
+    // console.log(index)
+  }
 }

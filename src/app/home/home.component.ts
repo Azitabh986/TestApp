@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { LoaderService } from '../_services/loader.service';
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { Router } from '@angular/router';
@@ -9,16 +9,19 @@ import { setDefaultService } from 'selenium-webdriver/chrome';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,AfterViewInit {
   likeContent:any;
   dislikeContent:any
   qrdata:string='';
   elementType : 'url' | 'canvas' | 'img' = 'url';
+  showLoader:boolean=true;
 valueNew : string='https://facebook.com/';
   constructor(private loader:LoaderService,private auth:AuthGuardService,private route:Router) { }
 
   ngOnInit() {
-    this.loader.setLoader(false);
+    setTimeout(function(){
+      this.showLoader=false;
+     },10)
     this.auth.canActivate().subscribe(data=>{
       if(data)
       {
@@ -37,7 +40,12 @@ valueNew : string='https://facebook.com/';
       }
       else
       this.dislikeContent=sessionStorage.getItem('dislike');
+      
 
+  }
+  ngAfterViewInit(){
+    this.showLoader=true;
+ 
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="loader"  *ngIf="!showLoader" style="color:black; text-align: center; font-size: 18px;">Loading...</div>
+<div class="loader"  *ngIf="!showLoader" style="color:black; text-align: center; font-size: 18px; ">Loading...</div>
 
 <div  *ngIf="showLoader">
   <div class="card" *ngFor="let item of mArticles | paginate:{itemsPerPage: 1, currentPage:p}" style="width:50%; margin-bottom: 20px; margin-left: 25%;">
@@ -9,15 +9,8 @@
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{item.content}}</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item">See More: {{item.url}}</li>
     </ul>
-    <div class="card-body">
-      <a href="{{item.url}}" class="card-link">More Details</a>
-      <span style="color: blue;margin-left: 3%;font-size: 20px;">Please Like or dislike</span>
-      <img  appFlipImages [likeBoolean]="checkLike" style="cursor: pointer; margin-left: 2%;" height=60; width="60" (click)="flipImages(item.title)"/>
-    </div>
-  </div>
 </div>
 <div  class="paginationCss" *ngIf="mArticles"><pagination-controls (pageChange)="setDefault()" (pageChange)="p=$event"></pagination-controls></div>
 

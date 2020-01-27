@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg" style="background-color:rgb(113, 180, 37); font-size: 18px;  text-decoration-style: solid; font-weight: bold;">
-    <a class="navbar-brand" href="#">Test Application</a>
+<nav class="navbar navbar-expand-lg" style="background-color:black; font-size: 18px;  text-decoration-style: solid; font-weight: bold;">
+    <a class="navbar-brand" href="#" style="color:white;">Test Application</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,20 +7,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" style="color:white;" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li>
             <a *ngIf="showButton"
+            style="color:white;"
             class="nav-item nav-link"
             [routerLink]="['/dashboard']"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >Google News</a
+            >Google News India</a
           >
         </li>
-        <li>
-          
-        </li>
+        <select id="orders" (click)="selectedCountry($event.target.value)">
+          <option  *ngFor="let order of countries; let i = index" [value]="order">
+           {{i+1}}. {{order}}
+          </option>
+        </select>
+        <div  style="color: white; font-size: 16px; margin-left: 10px;">{{today | date:'fullDate'}}</div>
+        <div style=" color: white; font-size: 16px; margin-left: 15px;"> {{today | date:'h:mm:ss a'}}</div>
       </ul>
      
       <div *ngIf="!showButton">
@@ -28,12 +33,12 @@
           Login
         </button>
       </div>
-      <div *ngIf="showButton" style="text-align: right; color:blue; ">
+      <div *ngIf="showButton" style="text-align: right; color:white; ">
         welcome,  {{firstName}} {{lastName}}
         <img src="{{image}}"  (click)="showQR()" height="42" width="42"
          style="margin-right: 10px;">
         
-        <button *ngIf="showButton" class="btn btn-danger" (click)="logout()">Logout</button> 
+        <button *ngIf="showButton" style="color:white;" class="btn btn-primary" (click)="logout()">Logout</button> 
       </div>
       <!-- <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

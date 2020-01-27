@@ -17,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { SwiperComponent } from './_smallComponents/swiper/swiper.component';
 import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { WorldNewsComponent } from './world-news/world-news.component';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -48,7 +49,8 @@ export function provideConfig() {
     HomeComponent,
     NotFoundComponent,
     FlipImagesDirective,
-    SwiperComponent
+    SwiperComponent,
+    WorldNewsComponent
   ],
   imports: [
     BrowserModule,

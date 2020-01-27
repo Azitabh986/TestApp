@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { WorldNewsComponent } from './world-news/world-news.component';
 
 
 const routes: Routes = [ {
@@ -25,6 +26,10 @@ const routes: Routes = [ {
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'worldNews',
+    component: WorldNewsComponent
   },
   {
     path: '**',

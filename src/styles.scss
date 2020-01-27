@@ -4,7 +4,7 @@
 
 
 .loader {
-    margin: 100px auto;
+    margin: 25% auto;
     font-size: 25px;
     width: 1em;
     height: 1em;
@@ -78,4 +78,13 @@
   .ngx-pagination {
     margin-bottom: 1rem;
     margin-left: 25%;
+  }
+  // pagination css
+  .paginationCss {
+    margin-bottom: 1rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 20px;
+    background-color: dimgray;
+    
   }

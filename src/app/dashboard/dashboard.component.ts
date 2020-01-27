@@ -7,13 +7,20 @@ import { NewsapiService } from '../_services/newsapi.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,AfterViewInit  {
+  ngAfterViewInit(): void {
+    this.showLoader=true;
+    throw new Error("Method not implemented.");
+  }
   checkLike:boolean;
   mArticles: Array<any>;
   count:number=0;
+  showLoader:boolean;
   constructor(private getService : NewsapiService) { }
   ngOnInit() {
     this.getService.initArticles().subscribe(data => this.mArticles = data['articles']);  
+    // this.showLoader=true;
+
   }
   flipImages(title){
     this.count++;

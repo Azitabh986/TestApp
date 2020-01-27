@@ -1,4 +1,8 @@
-<div class="carousel-item">
+<div class="loader" *ngIf='!showLoader'>
+  Loading
+</div>
+<div >
+  <div class="carousel-item" *ngIf="showLoader">
     <img src="..." alt="...">
     <div class="carousel-caption d-none d-md-block">
       <h5>you liked {{likeContent}}</h5>
@@ -16,7 +20,7 @@
         you disliked:
         {{dislikeContent}}
       </div>
-      <div >
+      <div>
         <app-swiper></app-swiper>
       </div>
      <div style="color: blue; font-size: 20px; text-align: center;" >
@@ -25,3 +29,4 @@
           </ngx-qrcode>
      </div>
       
+</div>
