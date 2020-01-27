@@ -50,10 +50,8 @@ export class HeaderComponent implements OnInit {
   }
   logout()
   {
-    sessionStorage.removeItem('TokenId')
-    sessionStorage.removeItem('firstName')
-    sessionStorage.removeItem('lastName')
-    sessionStorage.removeItem('imgUrl')
+    
+    sessionStorage.clear();
     window.location.reload();
     this.showButton=false;
     this.route.navigate(['home']);
@@ -73,12 +71,12 @@ export class HeaderComponent implements OnInit {
   selectedCountry(value)
   {
     if(value){
-      for(let i=1;i<this.countries.length;i++)
+      for(let i=0;i<this.countries.length;i++)
       {
         if(this.countries[i]==value)
         {
           this.loginService.setGetCountryId(this.countriesId[i]);
-          this.route.navigate(['dashboard']);
+          this.route.navigate(['home']);
           // console.log(this.countriesId[i])
         }
       }

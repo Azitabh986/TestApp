@@ -19,12 +19,12 @@
             >Google News India</a
           >
         </li>
-        <select id="orders" (click)="selectedCountry($event.target.value)">
+        <select  *ngIf="showButton" id="orders" (click)="selectedCountry($event.target.value)">
           <option  *ngFor="let order of countries; let i = index" [value]="order">
            {{i+1}}. {{order}}
           </option>
         </select>
-        <div class='btn btn-primary' (click)="navigate()">Apply</div>
+        <div class='btn btn-primary'  *ngIf="showButton" (click)="navigate()">Apply</div>
         <div  style="color: white; font-size: 16px; margin-left: 10px;">{{today | date:'fullDate'}}</div>
         <div style=" color: white; font-size: 16px; margin-left: 15px;"> {{today | date:'h:mm:ss a'}}</div>
       </ul>
