@@ -15,16 +15,13 @@ export class WorldNewsComponent implements OnInit,AfterViewInit {
   ngOnInit() {
     
       this.worldNews.initArticles().subscribe(data => {
+        if(data)
         this.mArticles = data['articles'];
+        else
+        this.showLoader=false;
       })
-      
-      console.log(this.mArticles)
-
-    
-
-    
   }
   ngAfterViewInit(){
-    this.showLoader=true
+    this.showLoader=true;
   }
 }

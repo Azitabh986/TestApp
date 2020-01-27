@@ -12,5 +12,5 @@
       <li class="list-group-item">See More: {{item.url}}</li>
     </ul>
 </div>
-<div  class="paginationCss" *ngIf="mArticles"><pagination-controls (pageChange)="setDefault()" (pageChange)="p=$event"></pagination-controls></div>
+<div  class="paginationCss" *ngIf="mArticles"><pagination-controls  (pageChange)="p=$event"></pagination-controls></div>
 

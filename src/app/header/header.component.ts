@@ -22,6 +22,11 @@ export class HeaderComponent implements OnInit {
     'Hong Kong','Hungary','India','Indonesia','Ireland','Israel','Italy','Japan','Latvia','Lithuania','Malaysia','Mexico','Morocco','Netherlands','New Zealand',
     'Nigeria','Norway','Philippines','Poland','Portugal','Romania','Russia','Saudi Arabia','Serbia','Singapore','Slovakia','Slovenia','South Africa','South Korea',
     'Sweden','Switzerland','Taiwan','Thailand','Turkey','UAE','Ukraine','United Kingdom','United States','Venuzuela']
+
+    countriesId=['ar','au','at','be','br','bg','ca','cn','co','cu','cz','eg','fr','de','gr',
+    'hk','hu','in','id','ie','il','it','jp','lv','lt','my','mx','ma','nl','nz',
+    'ng','no','ph','pl','pt','ro','ru','sa','rs','sg','sk','si','za','kr',
+    'se','ch','tw','th','tr','ae','ua','gb','us','ve']
   constructor(private loginService:LoginService,  private route:Router,private loader:LoaderService,private auth:AuthGuardService) {
     this.myAngularxQrCode = 'Your QR code data string';
     setInterval(() => {this.today = Date.now()}, 1);
@@ -67,15 +72,20 @@ export class HeaderComponent implements OnInit {
   }
   selectedCountry(value)
   {
-    if(value=='India')
-      this.route.navigate(['worldNews'])
-    // const index=0;
-    // this.countries.forEach(function (c){
-    //   if(c!=value)
-    //     this.index++;
-        
-    // })
-    
-    // console.log(index)
+    if(value){
+      for(let i=1;i<this.countries.length;i++)
+      {
+        if(this.countries[i]==value)
+        {
+          this.loginService.setGetCountryId(this.countriesId[i]);
+          this.route.navigate(['dashboard']);
+          // console.log(this.countriesId[i])
+        }
+      }
+    }
+  }
+  navigate()
+  {
+    this.route.navigate(['worldNews']);
   }
 }
