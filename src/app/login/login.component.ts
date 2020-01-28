@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
 
     let socialPlatformProvider;
     if(socialPlatform == "facebook"){
-      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+      // socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+      this.router.navigate(['**']);
     }else if(socialPlatform == "google"){
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
     }
