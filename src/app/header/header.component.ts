@@ -50,11 +50,11 @@ export class HeaderComponent implements OnInit {
   }
   logout()
   {
-    
+    this.route.navigate(['home']);
     sessionStorage.clear();
     window.location.reload();
     this.showButton=false;
-    this.route.navigate(['home']);
+    
     this.loader.setLoader(true);
   }
   showQR(){

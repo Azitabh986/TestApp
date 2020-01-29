@@ -40,16 +40,17 @@ export class LoginComponent implements OnInit {
                this.loginService.setUserHead(this.user);
                window.location.reload();
                this.router.navigate(['home']);
+               
             }       
       }
     );
       
   }
-      submitForm(value)
-      {
-        console.log(value)
-        this.router.navigate(['home']);
+      // submitForm(value)
+      // {
+      //   console.log(value)
+      //   this.router.navigate(['home']);
         
-      }
+      // }
 
 }

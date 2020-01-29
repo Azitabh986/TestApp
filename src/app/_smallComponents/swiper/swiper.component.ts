@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { LoaderService } from 'src/app/_services/loader.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-swiper',
   templateUrl: './swiper.component.html',
   styleUrls: ['./swiper.component.scss']
 })
-export class SwiperComponent implements OnInit {
+export class SwiperComponent implements OnInit,AfterViewInit{
 
   public swiperConfig: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -22,9 +24,18 @@ export class SwiperComponent implements OnInit {
   };
   images=['https://drive.google.com/open?id=1igAoPgWmUk9dgWvyxTE7c8-NTKxLgNSp',
           'https://drive.google.com/open?id=1igAoPgWmUk9dgWvyxTE7c8-NTKxLgNSp'];
-  constructor() { }
+  constructor(private loader:LoaderService, private router:Router) { }
 
   ngOnInit() {
   }
+  ngAfterViewInit(){
+    this.loader.setLoader(true);
+ 
+  }
+  showMsg()
+  {
+    window.alert('some text')
+  }
+  
 
 }

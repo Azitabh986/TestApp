@@ -2,7 +2,7 @@ import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { LoaderService } from '../_services/loader.service';
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { Router } from '@angular/router';
-import { setDefaultService } from 'selenium-webdriver/chrome';
+
 
 @Component({
   selector: 'app-home',
@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit,AfterViewInit {
   dislikeContent:any
   qrdata:string='';
   elementType : 'url' | 'canvas' | 'img' = 'url';
-  showLoader:boolean=true;
-valueNew : string='https://facebook.com/';
+  showLoader:boolean=false;
+  valueNew : string='https://facebook.com/';
   constructor(private loader:LoaderService,private auth:AuthGuardService,private route:Router) { }
 
   ngOnInit() {
-    setTimeout(function(){
-      this.showLoader=false;
-     },10)
+    this.loader.getLoader().subscribe(res=>{
+      this.showLoader=res;
+    })
     this.auth.canActivate().subscribe(data=>{
       if(data)
       {

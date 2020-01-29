@@ -1,4 +1,5 @@
-<div class="loader"  *ngIf="!showLoader" style="color:black; text-align: center; font-size: 18px; ">Loading...</div>
+<div class="spinner-border text-success textLoader"   *ngIf="!showLoader" ></div>
+<div  *ngIf="!showLoader" style="text-align: center; margin-top: -5px;  font-size: 18px; color: #000;">Loading</div>
 
 <div  *ngIf="showLoader">
   <div class="card" *ngFor="let item of mArticles | paginate:{itemsPerPage: 1, currentPage:p}" style="width:50%; margin-bottom: 20px; margin-left: 25%;">
@@ -12,5 +13,5 @@
       <li class="list-group-item">See More: {{item.url}}</li>
     </ul>
 </div>
-<div  class="paginationCss" *ngIf="mArticles"><pagination-controls  (pageChange)="p=$event"></pagination-controls></div>
+<div class="paginationCss" *ngIf="mArticles"><pagination-controls  (pageChange)="p=$event"></pagination-controls></div>
 
