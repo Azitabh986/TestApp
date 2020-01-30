@@ -7,7 +7,7 @@
    <p>{{user | json}}</p>
  </div>  -->
 
- <!-- <form #f="ngForm"  (ngSubmit)="submitForm(f.value)">
+ <form #f="ngForm"  (ngSubmit)="submitForm(f.value)">
   <div class="form-group row">
     <label for="username" class="col-sm-1 col-form-label col-form-label-sm" style="font-size: 18px; margin-left: 25px;margin-top: 20px;">Username: </label>
         <div class="col-sm-4">
@@ -45,10 +45,10 @@
          Password is required.</div>
          <div *ngIf="Password.errors?.minlength" style="color:red; margin-left: 25px;">
              Password must be 8 characters. you have entered {{Password.errors.minlength.actualLength}}
-         </div> -->
-         <!-- <button type="submit" class="btn btn-primary" style="margin-left: 75px;">Login</button>
+         </div>
+         <button type="submit" class="btn btn-primary" style="margin-left: 75px;">Login</button>
     
- </form> -->
+ </form>
 <div   style="text-align: center;">
     <div style="color: blueviolet; font-size: 20px; text-decoration: underline; margin-top: 5%;">Login with social Media</div>
     <button (click)="socialSignIn('facebook')" class="btn btn-primary my-4" style="margin-right: 20px;">Sign in with Facebook</button>

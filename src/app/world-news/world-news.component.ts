@@ -1,8 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NewapiService } from '../_services/newService.service';
-import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-world-news',
@@ -12,8 +11,15 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class WorldNewsComponent implements OnInit,AfterViewInit { 
   mArticles: Array<any>;
   showLoader:boolean=false;
+  title:string='See More Content'
 
-  constructor(private worldNews:NewapiService,private router:Router) { }
+  constructor(private worldNews:NewapiService,private router:Router,public translateService: TranslateService) {
+    translateService.addLangs(['en', 'fr']);
+    // translate.setDefaultLang('en');
+    // const browserLang = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|fr/) ? browserLang : 'fr');
+    // this.translate.use('fr')
+   }
 
   ngOnInit() {
       this.worldNews.initArticles().subscribe(data => {
@@ -27,5 +33,8 @@ export class WorldNewsComponent implements OnInit,AfterViewInit {
   }
   ngAfterViewInit(){
     // this.showLoader=true;
+  }
+  switchLanguage(language: string) {
+    this.translateService.use(language);
   }
 }

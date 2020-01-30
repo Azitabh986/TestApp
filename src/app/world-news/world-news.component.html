@@ -1,5 +1,12 @@
-<div class="spinner-border text-success textLoader"   *ngIf="!showLoader" ></div>
-<div  *ngIf="!showLoader" style="text-align: center; margin-top: -5px;  font-size: 18px; color: #000;">Loading</div>
+<div  translate style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: blue; font-size: 25px; font-weight: bold; text-decoration: underline;" >
+  WelcomeMessage
+</div>
+<button class="btn btn-primary" (click)="switchLanguage('fr')">Change</button>
+<button class="btn btn-warning textLoader" *ngIf="!showLoader" >
+  <span class="spinner-border spinner-border-sm"></span>
+  Loading..
+</button>
+<!-- <div  *ngIf="!showLoader" style="text-align: center; margin-top: -5px;  font-size: 18px; color: #000;">Loading</div> -->
 
 <div  *ngIf="showLoader">
   <div class="card" *ngFor="let item of mArticles | paginate:{itemsPerPage: 1, currentPage:p}" style="width:50%; margin-bottom: 20px; margin-left: 25%;">

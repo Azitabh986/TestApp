@@ -46,11 +46,16 @@ export class LoginComponent implements OnInit {
     );
       
   }
-      // submitForm(value)
-      // {
-      //   console.log(value)
-      //   this.router.navigate(['home']);
+      submitForm(value)
+      {
+        console.log(value)
+        sessionStorage.setItem('TokenId', '12312bjh3b1hj23'); 
+        sessionStorage.setItem('firstName',value.userName)
+        sessionStorage.setItem('lastName',value.password)
+        sessionStorage.setItem('imgUrl','');
+        this.router.navigate(['home']);
+        this.loginService.setBooleanButton(true)
         
-      // }
+      }
 
 }
