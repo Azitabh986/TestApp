@@ -6,11 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { WorldNewsComponent } from './world-news/world-news.component';
+import { BaijuComponent } from './baiju/baiju.component';
 
 
 const routes: Routes = [ {
   path: '',
-  component: HomeComponent
+  component: BaijuComponent
 },
 {
   path: 'home',
@@ -25,7 +26,7 @@ const routes: Routes = [ {
 
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: BaijuComponent
   },
   {
     path: 'worldNews',

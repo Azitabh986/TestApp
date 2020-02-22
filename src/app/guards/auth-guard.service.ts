@@ -5,22 +5,21 @@ import { CanActivate } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate{
- 
+export class AuthGuardService implements CanActivate {
+
 
   private isloggedIn: boolean;
-  
 
-  constructor() { 
-    this.isloggedIn=false;
+
+  constructor() {
+    this.isloggedIn = false;
   }
- 
-  canActivate()
-  {
-    if(sessionStorage.getItem('TokenId')==null)
-      this.isloggedIn=true;
+
+  canActivate() {
+    if (sessionStorage.getItem('TokenId') == null)
+      this.isloggedIn = true;
     else
-    this.isloggedIn=false;
+      this.isloggedIn = false;
     return of(this.isloggedIn);
   }
 }

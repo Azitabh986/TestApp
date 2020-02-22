@@ -20,6 +20,7 @@ import { WorldNewsComponent } from './world-news/world-news.component';
 
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { BaijuComponent } from './baiju/baiju.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -54,7 +55,8 @@ export function provideConfig() {
     NotFoundComponent,
     FlipImagesDirective,
     SwiperComponent,
-    WorldNewsComponent
+    WorldNewsComponent,
+    BaijuComponent
   ],
   imports: [
     BrowserModule,

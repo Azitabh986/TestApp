@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
   qrdata:string='';
   elementType : 'url' | 'canvas' | 'img' = 'url';
   showLoader:boolean=false;
-  valueNew : string='https://facebook.com/';
+  valueNew : string='https://facebook.com/azitabh.dinesh';
   constructor(private loader:LoaderService,private auth:AuthGuardService,private route:Router) { }
 
   ngOnInit() {
@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit,AfterViewInit {
       {
         this.likeContent=sessionStorage.getItem('like');
         this.valueNew+=sessionStorage.getItem('firstName');
+        this.valueNew+='.';
         this.valueNew+=+sessionStorage.getItem('lastName');
         // this.value=sessionStorage.getItem('imgUrl');
       }
