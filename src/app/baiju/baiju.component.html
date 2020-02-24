@@ -1,9 +1,14 @@
 <div style="margin-left: 30px;">
     <input type="text" style="width: 50%; border-radius: 20px; border-color: blue; margin-top: 30px; outline: none; font-weight: bold; text-align: center;"
-        (input)="callFun($event)" placeholder="search"/>
+        (input)="filterApprovalList($event)" placeholder="search"/>
 </div>
-<div style="border: solid 2px green; padding: 3%; margin: 2%; border-radius: 20px;" *ngFor="let show of data.overview">
-    <div *ngFor="let d of show.details">
-        {{ d.label }}: {{ d.value }}
+<ul>
+<li *ngFor="let d of   filteredPendingApprovalList">
+    <label>{{ d.date }}</label>
+    <div style="border: solid 2px green; padding: 3%; margin: 2%; border-radius: 20px;" *ngFor="let show of d.notificationJSONArray">
+        <div *ngFor="let s of show.overview.details">
+            {{ s.label }}: {{ s.value }}
+        </div>
     </div>
-</div>
+</li>
+</ul>

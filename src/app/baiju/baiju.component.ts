@@ -7,35 +7,38 @@ import { temp } from './baihu';
   styleUrls: ['./baiju.component.scss']
 })
 export class BaijuComponent implements OnInit {
-  data: any;
+  pendingApprovalList: any;
   p=0;
-  data1: { "footer": any; "title": string; "overview": { "title": string; "details": { "value": string; "label": string; "datatype": string; "fieldName": any; "editable": boolean; }[]; }[]; };
+  filteredPendingApprovalList: any;
   constructor() { }
 
   ngOnInit() {
-    this.data1 = temp;
-    this.data = this.data1;
-    console.log('data', this.data);
+    this.pendingApprovalList = temp;
+    this.filteredPendingApprovalList = temp;
   }
-  callFun(event) {
-    let searhDetails: any[][];
-    
-    let temp = event.target.value;
-    temp += '';
-    console.log(temp.length)
-    for( let j = 0; j < this.data1.overview.length; j++) {
-
-      for (let i = 0; i < this.data1.overview[j].details.length; i++) {
-        // console.log(this.data.overview[0].details[i])
-        let search = this.data1.overview[j].details[i].value;
-        search += '';
-        console.log(search)
-        if (temp.length > 0 && temp == search.substring(0, temp.length)){
-          searhDetails[this.p++][0]=this.data1.overview[j];
+  filterApprovalList(event: any) {
+    let searchValue = event.target.value;
+    searchValue += '';
+    if (searchValue && searchValue.trim() !== '') {
+      // tslint:disable-next-line: prefer-for-of
+      for (let k = 0; k < this.pendingApprovalList.length; k++) {
+        // tslint:disable-next-line: prefer-for-of
+        for (let j = 0; j < this.pendingApprovalList[k].notificationJSONArray.length; j++) {
+          // this.filteredPendingApprovalList[k].notificationJSONArray = [];
+          // tslint:disable-next-line: prefer-for-of
+          for (let i = 0; i < this.pendingApprovalList[k].notificationJSONArray[j].overview.details.length; i++) {
+            let value = this.pendingApprovalList[k].notificationJSONArray[j].overview.details[i].value;
+            value += '';
+            // console.log(this.pendingApprovalList)
+            if (searchValue === value.substring(0, searchValue.length)) {
+              this.filteredPendingApprovalList[k].notificationJSONArray.push(this.pendingApprovalList[k].notificationJSONArray[j]);
+            }
+          }
         }
-        console.log(searhDetails)
       }
+    } else if (searchValue.trim() === '') {
+      this.filteredPendingApprovalList = this.pendingApprovalList;
     }
-    this.data = searhDetails;
   }
+
 }

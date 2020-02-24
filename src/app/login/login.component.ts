@@ -13,11 +13,15 @@ export class LoginComponent implements OnInit {
 
   private user: SocialUser;
   public authorized: boolean = false;
+  showPrivacy:boolean;
   
   items$: Observable<any[]>;
 
   constructor( private socialAuthService: AuthService, private loginService:LoginService, private router: Router) {}
   ngOnInit() {
+    this.loginService.getShowPrivacy().subscribe(res=>{
+      this.showPrivacy=res;
+    })
   }
   
   public socialSignIn(socialPlatform : string) {  
@@ -53,6 +57,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('firstName',value.userName)
         sessionStorage.setItem('lastName',value.password)
         sessionStorage.setItem('imgUrl','');
+        this.showPrivacy=true;
         this.router.navigate(['home']);
         this.loginService.setBooleanButton(true)
         

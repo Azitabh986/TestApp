@@ -6,8 +6,16 @@
    <p>{{user.email}}</p>
    <p>{{user | json}}</p>
  </div>  -->
-
- <form #f="ngForm"  (ngSubmit)="submitForm(f.value)">
+<div *ngIf="!this.showPrivacy;  else notShow1">
+  <div style="text-align: center; font-size: 25px; color: blueviolet; text-decoration: underline;">Welcome To Our Website</div>
+<div style="text-align: center;">Please Pass the Google v2 verification for our security purpose. </div>
+</div>
+<ng-template #notShow1>
+  <div style="text-decoration: underline; text-align: center; color: black; font-size: 25px; background-color: violet;">
+    You have successfully pass the our pass criteria. Thank you for your patience.
+  </div>
+</ng-template>
+ <!-- <form #f="ngForm"  (ngSubmit)="submitForm(f.value)">
   <div class="form-group row">
     <label for="username" class="col-sm-1 col-form-label col-form-label-sm" style="font-size: 18px; margin-left: 25px;margin-top: 20px;">Username: </label>
         <div class="col-sm-4">
@@ -48,9 +56,14 @@
          </div>
          <button type="submit" class="btn btn-primary" style="margin-left: 75px;">Login</button>
     
- </form>
+ </form> -->
 <div   style="text-align: center;">
     <div style="color: blueviolet; font-size: 20px; text-decoration: underline; margin-top: 5%;">Login with social Media</div>
+    <div *ngIf="this.showPrivacy;  else notShow">
     <button (click)="socialSignIn('facebook')" class="btn btn-primary my-4" style="margin-right: 20px;">Sign in with Facebook</button>
-    <button (click)="socialSignIn('google')" class="btn btn-outline-primary my-4">Signin in with Google</button> 
+    <button (click)="socialSignIn('google')" class="btn btn-outline-primary my-4">Signin in with Google</button>   
+    </div>
+    <ng-template #notShow >
+      <app-google-security></app-google-security>
+    </ng-template>
 </div> 

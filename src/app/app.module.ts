@@ -21,6 +21,8 @@ import { WorldNewsComponent } from './world-news/world-news.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { BaijuComponent } from './baiju/baiju.component';
+import { RecaptchaModule} from 'ng-recaptcha';
+import { RecaptchaComponent } from './_smallComponents/swiper/recaptcha/recaptcha.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -56,7 +58,8 @@ export function provideConfig() {
     FlipImagesDirective,
     SwiperComponent,
     WorldNewsComponent,
-    BaijuComponent
+    BaijuComponent,
+    RecaptchaComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ export function provideConfig() {
     NgxPaginationModule,
     NgxQRCodeModule,
     SwiperModule,
+    RecaptchaModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

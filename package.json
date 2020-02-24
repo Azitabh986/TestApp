@@ -24,6 +24,7 @@
     "angularx-qrcode": "^1.7.0-beta.5",
     "angularx-social-login": "^2.2.1",
     "bootstrap": "^4.4.1",
+    "ng-recaptcha": "^5.0.0",
     "ngx-pagination": "^5.0.0",
     "ngx-qrcode2": "0.0.9",
     "ngx-swiper-wrapper": "^8.0.2",

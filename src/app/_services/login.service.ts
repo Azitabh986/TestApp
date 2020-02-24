@@ -11,6 +11,8 @@ export class LoginService {
   public socialLogin=new Subject<object>();
   public booleanButton=new Subject<boolean>();
   getCountryId=new Subject<string>();
+  public showPrivacy=new Subject<boolean>();
+
   setUserHead(val){
     this.socialLogin.next(val);
     sessionStorage.setItem('TokenId', val); 
@@ -33,6 +35,15 @@ export class LoginService {
   getGetCountryId()
   {
     return this.getCountryId.asObservable();
+  }
+
+  setShowPrivacy(value)
+  {
+    this.showPrivacy.next(value);
+  }
+  getShowPrivacy()
+  {
+    return this.showPrivacy.asObservable();
   }
   
 }
