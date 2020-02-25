@@ -16,7 +16,8 @@ export class RecaptchaComponent implements OnInit {
   }
   resolved(event)
   {
-    console.log(event)
+    // console.log(event)
     this.loginService.setShowPrivacy(true);
+    sessionStorage.setItem('captcha',event);
   }
 }

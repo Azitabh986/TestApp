@@ -11,7 +11,7 @@ import { BaijuComponent } from './baiju/baiju.component';
 
 const routes: Routes = [ {
   path: '',
-  component: BaijuComponent
+  component: HomeComponent
 },
 {
   path: 'home',
@@ -26,7 +26,7 @@ const routes: Routes = [ {
 
   {
     path: 'dashboard',
-    component: BaijuComponent
+    component: DashboardComponent
   },
   {
     path: 'worldNews',

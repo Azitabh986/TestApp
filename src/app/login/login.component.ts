@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
     this.loginService.getShowPrivacy().subscribe(res=>{
       this.showPrivacy=res;
     })
+    if(sessionStorage.getItem('captcha'))
+      this.showPrivacy=true;
   }
   
   public socialSignIn(socialPlatform : string) {  
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
     
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
-        console.log(socialPlatform+" sign in data : " , userData);
+        // console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData        
         if (userData != null) {
                this.authorized = true;
@@ -44,7 +46,7 @@ export class LoginComponent implements OnInit {
                this.loginService.setUserHead(this.user);
                window.location.reload();
                this.router.navigate(['home']);
-               
+               sessionStorage.removeItem('captcha');
             }       
       }
     );
@@ -52,7 +54,7 @@ export class LoginComponent implements OnInit {
   }
       submitForm(value)
       {
-        console.log(value)
+        // console.log(value)
         sessionStorage.setItem('TokenId', '12312bjh3b1hj23'); 
         sessionStorage.setItem('firstName',value.userName)
         sessionStorage.setItem('lastName',value.password)

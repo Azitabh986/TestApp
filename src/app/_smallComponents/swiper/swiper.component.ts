@@ -22,8 +22,8 @@ export class SwiperComponent implements OnInit,AfterViewInit{
     speed: 700,
     loop: true
   };
-  images=['https://drive.google.com/open?id=1igAoPgWmUk9dgWvyxTE7c8-NTKxLgNSp',
-          'https://drive.google.com/open?id=1igAoPgWmUk9dgWvyxTE7c8-NTKxLgNSp'];
+  images=['./assets/images/1.jpg',
+          './assets/images/2.jpeg','./assets/images/4.jpg','./assets/images/5.jpg'];
   constructor(private loader:LoaderService, private router:Router) { }
 
   ngOnInit() {
